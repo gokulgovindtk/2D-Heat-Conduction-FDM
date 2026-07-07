@@ -4,11 +4,11 @@ from matplotlib.animation import FuncAnimation
 
 
 def apply_bc(T):
-    # 1. Handle Neumann (insulated sides) first. This lets corners copy inner values...
+    # Neumann (insulated sides) first
     T[:, 0] = T[:, 1]
     T[:, -1] = T[:, -2]
 
-    # 2. ...and then Dirichlet overrides the corners so they stay strictly 0.0
+    #  then Dirichlet 
     T[0, :] = 0.0
     T[-1, :] = 0.0
 
